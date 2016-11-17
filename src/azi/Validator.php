@@ -97,7 +97,7 @@ class Validator
      */
     public function __construct()
     {
-        static::$instance = $this;
+        self::$instance = $this;
     }
 
 
@@ -208,10 +208,10 @@ class Validator
             session_start();
         }
 
-        if (isset( $_SESSION[ static::SESSION_DATA_KEY ] )) {
-            if (count($_SESSION[ static::SESSION_DATA_KEY ]) > 0) {
-                self::$errors = $_SESSION[ static::SESSION_DATA_KEY ];
-                unset( $_SESSION[ static::SESSION_DATA_KEY ] );
+        if (isset( $_SESSION[ self::SESSION_DATA_KEY ] )) {
+            if (count($_SESSION[ self::SESSION_DATA_KEY ]) > 0) {
+                self::$errors = $_SESSION[ self::SESSION_DATA_KEY ];
+                unset( $_SESSION[ self::SESSION_DATA_KEY ] );
             }
         }
 
@@ -354,7 +354,7 @@ class Validator
             session_start();
         }
 
-        $_SESSION[ static::SESSION_DATA_KEY ] = self::$errors;
+        $_SESSION[ self::SESSION_DATA_KEY ] = self::$errors;
 
 
         header('Location: ' . $_SERVER[ 'HTTP_REFERER' ]);
@@ -415,7 +415,7 @@ class Validator
             $message = $this->error_messages[ $rule ];
         }
 
-        static::$errors[ $field ] = $message;
+        self::$errors[ $field ] = $message;
 
         return false;
     }
@@ -448,7 +448,7 @@ class Validator
         $result = $ruleObject->run($this->keyToLabel($field), $value, $message);
 
         if (!$result) {
-            static::$errors[ $field ] = $ruleObject->message();
+            self::$errors[ $field ] = $ruleObject->message();
         }
 
         return $result;
@@ -474,7 +474,7 @@ class Validator
             $message = $this->keyToLabel($field)." is invalid";
         }
 
-        static::$errors[ $field ] = $message;
+        self::$errors[ $field ] = $message;
 
         return false;
     }
@@ -584,7 +584,7 @@ class Validator
      */
     public function clear()
     {
-        static::$errors = array();
+        self::$errors = array();
     }
 
 

@@ -1,11 +1,11 @@
 {
-    "name": "azi/validator",
+    "name": "anatoliWeb/validator",
     "description": "Server side user input validation library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Azi Baloch",
-            "email": "azeemhassni@gmail.com"
+            "name": "anatoli Web",
+            "email": "anatolii.web@gmail.com"
         }
     ],
     "autoload" : {
