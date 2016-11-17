@@ -1,0 +1,22 @@
+{
+    "name": "azi/validator",
+    "description": "Server side user input validation library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Azi Baloch",
+            "email": "azeemhassni@gmail.com"
+        }
+    ],
+    "autoload" : {
+        "psr-4": {
+            "azi\\" : ["src/azi/"]
+        }
+    },
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev" : {
+        "phpunit/phpunit": "~4.5"
+    }
+}
